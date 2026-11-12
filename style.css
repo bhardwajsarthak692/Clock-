@@ -1,0 +1,439 @@
+/* .box{
+    background-color: rgb(37, 128, 61);
+    color: antiquewhite;
+    text-align: center;
+    text-decoration:dotted;
+    font-family: cursive;
+    display: block;
+    padding: 30px;
+    border: 3px solid black;
+    border-radius: 22px;
+        width: 200px;
+body{
+
+    background-color: rgb(162, 226, 113);
+
+
+} */
+ 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101827, #1d3557);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: stretch;
+    gap: 25px;
+}
+
+.box {
+    width: 280px;
+    min-height: 220px;
+    padding: 25px 20px;
+    background: #ffffff;
+    color: #1d3557;
+    border: 1px solid #dbe4ee;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+.box h2 {
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+button {
+    padding: 10px 16px;
+    margin: 5px 3px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+#time,
+#stopwatch,
+#timer {
+    font-size: 25px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+#date {
+    font-size: 17px;
+}
+
+#status {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+        gap: 16px;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+I'll explain every CSS element and property used in your `style.css` in easy language, with examples related to your Digital Clock project.
+
+## 1. Universal selector `*`
+
+```
+* {
+    box-sizing: border-box;
+}
+```
+
+- `*` — selects every HTML element on the page.
+- `box-sizing: border-box;` — includes padding and borders within an element's specified width and height.
+
+Example: If a box has `width: 280px`, its total width remains 280px even after adding padding and borders.
+
+Without this property, padding and borders can make the box wider than expected.
+
+## 2. The `body` selector
+
+```
+body {
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101827, #1d3557);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: stretch;
+    gap: 25px;
+}
+```
+
+The `body` selector styles the main webpage.
+
+| Property                           | Meaning                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `margin: 0;`                       | Removes the browser's default outer space.                                                             |
+| `padding: 40px 20px;`              | Adds 40px of space at the top and bottom, and 20px on the left and right.                              |
+| `min-height: 100vh;`               | Makes the body at least as tall as the browser window. `vh` means viewport height; `100vh` means 100%. |
+| `font-family: Arial, sans-serif;`  | Uses Arial for text. If unavailable, the browser uses a sans-serif font.                               |
+| `background: linear-gradient(...)` | Creates a gradient background instead of a single solid color.                                         |
+| `display: flex;`                   | Enables Flexbox, which helps arrange the boxes.                                                        |
+| `flex-wrap: wrap;`                 | Allows boxes to move to the next row if they don't fit.                                                |
+| `justify-content: center;`         | Centers boxes horizontally along the main axis.                                                        |
+| `align-content: flex-start;`       | Keeps multiple rows grouped toward the top of the available space.                                     |
+| `align-items: stretch;`            | Allows items to stretch along the cross axis when space and sizing permit.                             |
+| `gap: 25px;`                       | Creates 25px of space between boxes, both horizontally and vertically.                                 |
+
+### Understanding the gradient
+
+```
+background: linear-gradient(135deg, #101827, #1d3557);
+```
+
+- `linear-gradient()` — blends colors gradually.
+- `135deg` — sets the direction of the gradient to 135 degrees.
+- `#101827` — the starting dark blue-gray color.
+- `#1d3557` — the second, lighter navy-blue color.
+
+You can replace these colors with other hex color codes.
+
+## 3. The `.box` selector
+
+```
+.box {
+    width: 280px;
+    min-height: 220px;
+    padding: 25px 20px;
+    background: #ffffff;
+    color: #1d3557;
+    border: 1px solid #dbe4ee;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+```
+
+The dot in `.box` means this selector targets every HTML element with `class="box"`.
+
+| Property                     | Meaning                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------- |
+| `width: 280px;`              | Sets the box width to 280 pixels.                                           |
+| `min-height: 220px;`         | Sets the minimum height to 220 pixels; the box can grow if needed.          |
+| `padding: 25px 20px;`        | Adds 25px of inner space vertically and 20px horizontally.                  |
+| `background: #ffffff;`       | Makes the box background white.                                             |
+| `color: #1d3557;`            | Sets the default text color to navy blue.                                   |
+| `border: 1px solid #dbe4ee;` | Adds a 1px solid, light-colored border.                                     |
+| `border-radius: 18px;`       | Rounds the corners of the box.                                              |
+| `text-align: center;`        | Centers inline text and content horizontally.                               |
+| `box-shadow: ...;`           | Adds a shadow behind the box to create depth.                               |
+| `transition: ...;`           | Makes changes to the specified properties happen smoothly over 0.2 seconds. |
+
+### Understanding `box-shadow`
+
+```
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+```
+
+The four important values are:
+
+- `0` — horizontal shadow offset.
+- `8px` — vertical shadow offset.
+- `24px` — blur radius, which makes the shadow softer.
+- `rgba(0, 0, 0, 0.2)` — black at 20% opacity.
+
+The result is a soft shadow below each card.
+
+### Understanding `transition`
+
+```
+transition: transform 0.2s, box-shadow 0.2s;
+```
+
+This animates changes to `transform` and `box-shadow` over 0.2 seconds instead of changing them instantly.
+
+## 4. The hover effect
+
+```
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+```
+
+- `.box:hover` — applies styles when the mouse pointer is over a box.
+- `transform` — changes the visual position or shape of an element.
+- `translateY(-5px)` — moves the box upward by 5 pixels.
+- The second `box-shadow` makes the shadow larger and darker while hovering.
+
+This creates a small lifting effect when you move your mouse over a card.
+
+## 5. The `.box h2` selector
+
+```
+.box h2 {
+    font-size: 20px;
+    margin: 12px 0;
+}
+```
+
+This targets only `h2` headings inside elements with the class `box`.
+
+- `font-size: 20px;` — sets the heading text size to 20 pixels.
+- `margin: 12px 0;` — adds 12px of space above and below each heading and 0px on the left and right.
+
+For example, it affects headings such as `STOPWATCH`, `TIMER`, and `ALARM CLOCK`.
+
+## 6. The `button` selector
+
+```
+button {
+    padding: 10px 16px;
+    margin: 5px 3px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+```
+
+This styles every button on the page.
+
+| Property               | Meaning                                                   |
+| ---------------------- | --------------------------------------------------------- |
+| `padding: 10px 16px;`  | Adds inner space: 10px vertically and 16px horizontally.  |
+| `margin: 5px 3px;`     | Adds outer space: 5px vertically and 3px horizontally.    |
+| `border: none;`        | Removes the default button border.                        |
+| `border-radius: 7px;`  | Rounds the button corners.                                |
+| `background: #2563eb;` | Gives the button a bright blue background.                |
+| `color: white;`        | Makes button text white.                                  |
+| `font-size: 13px;`     | Sets the text size to 13 pixels.                          |
+| `font-weight: bold;`   | Makes the text bold.                                      |
+| `cursor: pointer;`     | Shows a hand-shaped cursor when hovering over the button. |
+
+### Button hover
+
+```
+button:hover {
+    background: #1d4ed8;
+}
+```
+
+When you hover over a button, its background changes to a darker blue. This gives the user visual feedback.
+
+## 7. The `input` selector
+
+```
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 14px;
+}
+```
+
+This styles input fields, including the timer's seconds input and the alarm's time input.
+
+- `width: 100%;` — makes the input fill the available width of its containing box, subject to the box model.
+- `padding: 10px;` — adds 10px of inner space on all sides.
+- `margin: 10px 0;` — adds 10px of space above and below the input.
+- `border: 1px solid #cbd5e1;` — adds a thin light-gray border.
+- `border-radius: 7px;` — rounds the corners.
+- `font-size: 14px;` — sets the text size.
+
+Because the inputs are inside a padded box, `width: 100%` can make them overflow if the available width is too small. Your universal `box-sizing: border-box` helps prevent that.
+
+## 8. The ID selectors for time displays
+
+```
+#time,
+#stopwatch,
+#timer {
+    font-size: 25px;
+    font-weight: bold;
+    color: #2563eb;
+}
+```
+
+The `#` symbol selects an element by its HTML `id`.
+
+For example:
+
+```
+<h2 id="time">10:32:02 pm</h2>
+```
+
+Here, `#time` selects that heading.
+
+- `#time` — current time display.
+- `#stopwatch` — stopwatch display.
+- `#timer` — countdown timer display.
+- `font-size: 25px;` — makes the numbers larger.
+- `font-weight: bold;` — makes them bold.
+- `color: #2563eb;` — colors them blue.
+
+The comma lets one CSS rule style all three IDs.
+
+## 9. The date selector
+
+```
+#date {
+    font-size: 17px;
+}
+```
+
+This targets the HTML element with `id="date"` and makes the date text 17 pixels in size.
+
+## 10. The alarm status selector
+
+```
+#status {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+```
+
+- `font-size: 14px;` — sets the status message size.
+- `overflow-wrap: anywhere;` — allows long text to break onto another line if necessary, rather than overflowing the card.
+
+For example, it helps messages like “Alarm is set for 10:45” fit inside the alarm box.
+
+## 11. The media query
+
+```
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+        gap: 16px;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+```
+
+A media query applies CSS only when the browser matches a specified condition.
+
+Here, `(max-width: 600px)` means the browser viewport is 600 pixels wide or narrower, which is common on mobile phones.
+
+Inside it:
+
+- `padding: 20px 12px;` — reduces the page's outer spacing on small screens.
+- `gap: 16px;` — reduces the spacing between cards.
+- `width: 100%;` — lets a card use the available width of its parent.
+- `max-width: 350px;` — prevents a card from becoming wider than 350 pixels.
+
+This is called responsive design because the layout adjusts to different screen sizes.
+
+## 12. Quick revision: important CSS concepts
+
+Layout
+
+`display`, `flex-wrap`, `justify-content`, `align-items`, `gap`
+
+Arrange and space the boxes.
+
+Appearance
+
+`background`, `color`, `border`, `border-radius`, `box-shadow`
+
+Control colors, borders, rounded corners, and shadows.
+
+Text and spacing
+
+`font-size`, `font-family`, `font-weight`, `margin`, `padding`
+
+Control text appearance and spacing inside or outside elements.
+
+Interaction and responsiveness
+
+`:hover`, `transition`, `@media`
+
+Create hover effects and adapt the layout for mobile screens.
+
+One final tip: HTML creates the structure, CSS controls its appearance, and JavaScript makes it work. In your project, the HTML creates the clock, stopwatch, timer, and alarm; CSS styles them; and JavaScript updates the time and handles the buttons.
